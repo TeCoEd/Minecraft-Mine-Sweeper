@@ -11,22 +11,22 @@ mc.postToChat("Welcome to Minecraft MineSweeper")
 x, y, z = mc.player.getPos()
 mc.setBlocks(x, y-1, z, x+20, y-1, z+20, 58)
 
-global bomb
-bomb = random.randrange(0, 11, 1)
-print bomb
+global mine
+mine = random.randrange(0, 11, 1)
+print mine
 
-###Places the bomb###
-bomb_x = int(x+bomb)
-bomb_y = int(y-1)
-bomb_z = int(z+bomb)
+###Places the mine###
+mine_x = int(x+mine)
+mine_y = int(y-1)
+mine_z = int(z+mine)
 
-print bomb_x, bomb_y, bomb_z ###test
-mc.setBlock(bomb_x, bomb_y, bomb_z,58)
+print mine_x, mine_y, mine_z ###test
+mc.setBlock(mine_x, mine_y, mine_z,58)
 
 score = 0
 
 mc.postToChat("Score is "+str(score))
-#test = mc.setBlock(x + bomb, y-1, z + bomb, 46,1)
+#test = mc.setBlock(x + mine, y-1, z + mine, 46,1)
 time.sleep(10)
 while True:  ###TEST IF YOU STAND ON THE BLOCK
     
@@ -34,7 +34,7 @@ while True:  ###TEST IF YOU STAND ON THE BLOCK
     #print x1, y1, z1 ###test
     time.sleep(0.1)
     score = score + 1
-    if (x1, y1-1, z1) == (bomb_x, bomb_y, bomb_z):
+    if (x1, y1-1, z1) == (mine_x, mine_y, mine_z):
         mc.setBlocks(x-5, y+1, z-5, x+5, y+2, z+5, 10) ##CHANGE TO WATER?
         print "GAME OVER"
         mc.postToChat("G A M E  O V E R")
@@ -43,7 +43,4 @@ while True:  ###TEST IF YOU STAND ON THE BLOCK
     else:
         mc.setBlock(x1, y1-1, z1, 41)
         
-        
-        
-    
 mc.postToChat("GAME OVER")         
