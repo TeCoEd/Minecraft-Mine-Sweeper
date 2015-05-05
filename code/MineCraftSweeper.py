@@ -6,14 +6,14 @@ import time
 from mcpi import minecraft
 mc = minecraft.Minecraft.create()
 
-global bomb
-bomb = random.randrange(0, 11, 1)
-print bomb
-
 ###Creates the Board###
 mc.postToChat("Welcome to Minecraft MineSweeper")
 x, y, z = mc.player.getPos()
 mc.setBlocks(x, y-1, z, x+20, y-1, z+20, 58)
+
+global bomb
+bomb = random.randrange(0, 11, 1)
+print bomb
 
 ###Places the bomb###
 bomb_x = int(x+bomb)
