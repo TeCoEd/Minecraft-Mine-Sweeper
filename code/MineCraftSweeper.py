@@ -33,7 +33,7 @@ while True:  ###TEST IF YOU STAND ON THE BLOCK
     x1, y1, z1 = mc.player.getTilePos()
     #print x1, y1, z1 ###test
     time.sleep(0.1)
-    score = score + 1
+    
     if (x1, y1-1, z1) == (mine_x, mine_y, mine_z):
         mc.setBlocks(x-5, y+1, z-5, x+5, y+2, z+5, 10) ##CHANGE TO WATER?
         print "GAME OVER"
@@ -41,6 +41,7 @@ while True:  ###TEST IF YOU STAND ON THE BLOCK
         mc.postToChat("Score is "+str(score))
         break
     else:
+        score = score + 1
         mc.setBlock(x1, y1-1, z1, 41)
         
 mc.postToChat("GAME OVER")         
